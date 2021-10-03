@@ -119,7 +119,6 @@ class Player {
 }
 
 function playWar() {
-
     // Create and shuffle deck
     let d = new Deck();
     d.shuffle();
@@ -130,11 +129,6 @@ function playWar() {
 
     // Deal cards to the players and report their details
     d.dealAlltoPlayers([p1, p2]);
-
-    p1.reportPoints();
-    p1.reportHand();
-    p2.reportPoints();
-    p2.reportHand();
 
     // Continually play until one player runs out of cards
     while (p1.hasCards() && p2.hasCards()) {
@@ -149,6 +143,10 @@ function playWar() {
             // draw, both cards are the same but have been discarded
             // while playing this turn
         }
+        p1.reportPoints();
+        p1.reportHand();
+        p2.reportPoints();
+        p2.reportHand();
     }
 
     // Compare points and print
